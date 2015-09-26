@@ -4,4 +4,4 @@ Git test.
 Git has a mutable index called sstage.
 add one line and change.
 change and change.
-
+test again.
