@@ -1,28 +1,23 @@
-#include<iostream>
-using namespace std;     //声明使用命名空间std中的名字
+#include <iostream>
+#include "Sales_item.h"
+#include "math.h"
+using namespace std;
+
+struct Sales_data
+{
+	string bookname;
+	string booknum;
+	unsigned price = 0;
+	unsigned sale_num = 0;
+};
 
 int main()
 {
-	/****************变量区*****************/
-	int currval,val = 0;
-	/****************程序区*****************/
-	cout << "Enter  Numbers:" << endl;
-	if (cin >> currval)
-	{
-		int cnt = 1;
-		while (cin >> val)
-		{
-			if (val == currval)
-				cnt++;
-			else
-			{
-				cout << currval << " occurs " << cnt << " times" << endl;
-				currval = val;
-				cnt = 1;
-			}
-		}
-		cout << currval << " occurs " << cnt << " times" << endl;
-	}
-    
+	Sales_data Cpp_primer;
+	Cpp_primer.bookname = "cppprimer";
+	Cpp_primer.booknum = "0000001";
+	Cpp_primer.price = 128;
+	Cpp_primer.sale_num = 100;
+
 	return 0;
 }
