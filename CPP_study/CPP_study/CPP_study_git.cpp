@@ -1,11 +1,10 @@
 #include <iostream>
-#include "Sales_item.h"
+#include <string>
 #include "math.h"
 using namespace std;
 
 struct Sales_data
 {
-	string bookname;
 	string booknum;
 	unsigned price = 0;
 	unsigned sale_num = 0;
@@ -13,11 +12,33 @@ struct Sales_data
 
 int main()
 {
-	Sales_data Cpp_primer;
-	Cpp_primer.bookname = "cppprimer";
-	Cpp_primer.booknum = "0000001";
-	Cpp_primer.price = 128;
-	Cpp_primer.sale_num = 100;
+	Sales_data total;
+	if (cin >> total.booknum >> total.price >> total.sale_num)
+	{
+		Sales_data temp;
+		while (cin >> temp.booknum >> temp.price >> temp.sale_num)
+		{
+			if (total.booknum == temp.booknum)
+			{
+				total.price += temp.price;
+				total.sale_num += temp.sale_num;
+			}
+			else
+			{
+				cout << total.sale_num << " " << total.price << " " << total.price / total.sale_num << endl;
+				total.booknum = temp.booknum;
+				total.price = temp.price;
+				total.sale_num = temp.sale_num;
+			}
+		}
+		cout << total.sale_num << " " << total.price << " " << total.price / total.sale_num << endl;
+	}
+	else
+	{
+		cerr << "no datas!!!" << endl;
+
+		return -1;
+	}
 
 	return 0;
 }
